@@ -1,21 +1,48 @@
-# Madlib.py
-print("Welcome to my Madlib! Lets create a military-themed story.\n")
-# This is a Madlib script that prompts the user for inputs to create a military-themed story.
-# It uses string formatting to insert user inputs into a predefined story template.
-# The script begins by printing a welcome message and then prompts the user for various inputs.
+# Madlib.py - Military-Themed Mad Libs Game
+
+print("Welcome to my Military-Themed Madlib! Let's create an epic story.\n")
 
 print("Please fill in the following prompts:\n")
 
 # Prompt the user for inputs
-military_base = input("Military Base (e.g., Twentynine Palms, or make one up: ")
-adj = input("Adjective: ")
-military_rank = input("Military Rank (e.g. General, Corporal, Private, etc.): ")
-noun1 = input("Noun: ")
-verb = input("Verb: ")
-noun2 = input("Noun: ")
+military_base = input("Military Base (e.g., Camp Pendleton, Twentynine Palms): ")
+adj1 = input("Adjective (describing a Marine): ")
+military_rank = input("Military Rank (e.g., General, Sergeant, Corporal): ")
+noun1 = input("Noun (e.g., platoon, rifle, humvee): ")
+verb = input("Verb ending in -ing (e.g., charging, marching): ")
+noun2 = input("Noun (e.g., stars, battlefield, flag): ")
+adj2 = input("Adjective (e.g., heroic, intense): ")
 
-madlib = f"\nAt {military_base}, a {adj} {military_rank}, led a mission with their {noun1}. They faced a {verb}-ing challenges and triumped under the {noun2} sky!"
+# Improved story template with more inputs and fixed typos
+madlib = f"""
+\nAt {military_base}, a {adj1} {military_rank} led a mission with their {noun1}. 
+They faced {verb} challenges and triumphed under the {noun2} sky. 
+It was a truly {adj2} day for the Corps!
+"""
 
 print(madlib)
-# The script ends by printing the completed Madlib story.
+
+# Allow replay
+while True:
+    replay = input("\nWant to play again? (y/n): ").strip().lower()
+    if replay != 'y':
+        print("\nThanks for playing! Semper Fi! 💪")
+        break
+    else:
+        print("\n--- New Story ---\n")
+        # Re-prompt for replay
+        military_base = input("Military Base: ")
+        adj1 = input("Adjective: ")
+        military_rank = input("Military Rank: ")
+        noun1 = input("Noun: ")
+        verb = input("Verb -ing: ")
+        noun2 = input("Noun: ")
+        adj2 = input("Adjective: ")
+        madlib = f"""
+At {military_base}, a {adj1} {military_rank} led a mission with their {noun1}. 
+They faced {verb} challenges and triumphed under the {noun2} sky. 
+It was a truly {adj2} day for the Corps!
+"""
+        print(madlib)
+
 input("\nPress Enter to exit.")
